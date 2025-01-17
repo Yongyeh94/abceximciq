@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find your dream home near CIQ, with affordable luxury, seamless connectivity, and a prime location.">
+    <meta name="keywords" content="affordable homes, CIQ, residential, prime location, freehold properties">
+    <meta property="og:image" content="hero-image.jpg">
+    <title>Your Dream Home Awaits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header Styling */
+       header {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center; /* Ensure text is centered */
+}
+
+.header-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfectly center the header content */
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: white;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    background: #ff5722;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #e64a19;
+}
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Features Section */
+        .features {
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .features li {
+            width: 45%;
+            margin: 10px 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .features li:hover {
+            transform: scale(1.05);
+        }
+
+        .features li span {
+            font-size: 2rem;
+            margin-right: 10px;
+            color: #ff5722;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .gallery-heading {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border: 5px solid #ff5722;
+            border-radius: 10px;
+            height: 400px; /* Fixed height for the gallery container */
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image adapts to the size of the frame */
+            display: none;
+            border-radius: 10px;
+        }
+
+        .gallery-img.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .gallery-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .gallery-button.left {
+            left: 10px;
+        }
+
+        .gallery-button.right {
+            right: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: #ff5722;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+        }
+
+        .cta form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta input,
+        .cta button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .cta button {
+            background: #fff;
+            color: #ff5722;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cta button:hover {
+            background: #e64a19;
+            color: #fff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            .features ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features li {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Walking Distance to CIQ</h1>
+            <p>Affordable luxury, prime location, and unmatched convenience starting at just RM310k!</p>
+            <a href="#features" class="btn">Discover More</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="features" class="features">
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li><span>🏡</span>Practical Residential Layout: 1 to 3-bedroom options</li>
+                <li><span>🏨</span>Luxury Hotel Layout: Studio,Dualkey options</li>
+                <li><span>🚍</span>Seamless Connectivity: Walking Dist. CIQ & RTS</li>
+                <li><span>🔑</span>Freehold Ownership: Invest with confidence</li>
+                <li><span>🛠️</span>With Partially Furnished Package</li>
+                <li><span>☔</span>Aircon Link Bridge: No Worries when Raining</li>
+            </ul>
+        </section>
+
+        <section class="gallery">
+            <h2 class="gallery-heading">Hotel Style</h2>
+            <div class="gallery-container">
+                <img src="CIQ-1.jpg" alt="Hotel Image" class="gallery-img active hotel-img">
+                <img src="CIQ-2.jpg" alt="Hotel Image" class="gallery-img hotel-img">
+                <img src="CIQ-3.jpg" alt="Hotel Image" class="gallery-img hotel-img">
+                <button class="gallery-button left" onclick="changeImage(-1, 'hotel')" aria-label="Previous Hotel Image">&#10094;</button> 
+                <button class="gallery-button right" onclick="changeImage(1, 'hotel')" aria-label="Next Hotel Image">&#10095;</button> 
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2 class="gallery-heading">Residential Style</h2>
+            <div class="gallery-container">
+                <img src="CIQ-4.jpg" alt="Residential Image" class="gallery-img active residential-img">
+                <img src="CIQ-5.jpg" alt="Residential Image" class="gallery-img residential-img">
+                <img src="CIQ-6.jpg" alt="Residential Image" class="gallery-img residential-img">
+                <button class="gallery-button left" onclick="changeImage(-1, 'residential')" aria-label="Previous Residential Image">&#10094;</button> 
+                <button class="gallery-button right" onclick="changeImage(1, 'residential')" aria-label="Next Residential Image">&#10095;</button> 
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Take the First Step Toward Your Dream Home</h2>
+            <form id="propertyForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="tel" id="phone" placeholder="Your Phone Number" required>
+                <button type="submit">Book Your Exclusive Tour</button>
+            </form>
+            <p id="responseMessage" style="display: none; color: green;">Thank you! Your submission has been recorded.</p>
+        </section>
+    </main>
+<style>
+    /* Spacing between CTA and footer */
+    .cta {
+        margin-bottom: 40px; /* Adds space below the CTA section */
+    }
+
+    footer {
+        background-color: #000; /* Sleek black background */
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        position: relative;
+    }
+
+    .footer-links {
+        margin-bottom: 20px;
+    }
+
+    .footer-link {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+
+    .footer-link:hover {
+        color: #ffd700; /* Gold color for hover */
+    }
+
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px; /* Ensures the contact section is nicely spaced */
+    }
+
+    .footer-contact p {
+        margin: 10px 0;
+    }
+
+    /* WhatsApp Button Styling */
+    .whatsapp-btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .whatsapp-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 50%;
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+        transition: transform 0.3s, background 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+        transform: scale(1.1);
+        background: #25D366; /* WhatsApp green */
+    }
+
+    .whatsapp-btn img {
+        width: 100%;
+        height: auto;
+    }
+
+    .contact-text {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+</style>
+<footer>
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+            <a href="/terms-conditions" class="footer-link">Terms & Conditions</a>
+        </div>
+        <div class="footer-contact">
+            <div class="whatsapp-btn-container">
+                <a href="https://wa.me/60187693817" class="whatsapp-btn" target="_blank" aria-label="Contact us on WhatsApp">
+                    <img src="whatsapp-icon.png" alt="WhatsApp">
+                </a>
+                <p class="contact-text">Contact us for more information!</p>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <p>&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+
+    <script>
+function changeImage(direction, gallery) {
+    const galleryImages = document.querySelectorAll(`.${gallery}-img`);
+    let currentIndex = [...galleryImages].findIndex(image => image.classList.contains("active"));
+
+    galleryImages[currentIndex].classList.remove("active");
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+        currentIndex = galleryImages.length - 1;
+    } else if (currentIndex >= galleryImages.length) {
+        currentIndex = 0;
+    }
+
+    galleryImages[currentIndex].classList.add("active");
+}
+
+document.getElementById('propertyForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value
+    };
+
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwVw4QUkmB-VNe6hkdYQoIBfiXohOLCXr5Ui_RaUBNG11lkLpeuzCJxkuFyUtsGJau5Ui_RaUBNG11lkLpeuzCJxkuFyUtsGJau5/exec', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+        // Show success message with additional note
+        document.getElementById('responseMessage').style.display = 'block';
+        document.getElementById('responseMessage').textContent = "Thank you for your submission! You have been successfully added to our waiting list.";
+    } else {
+        alert('Something went wrong. Please try again.');
+    }
+});
+
+    </script>
+</body>
+</html>
